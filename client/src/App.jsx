@@ -1,21 +1,20 @@
-import { useState, useEffect } from 'react'
-import './App.css'
+import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
-  const [employees, setEmployees] = useState([]); 
+  const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchEmployees = async () => {
       setLoading(true);
-      const response = await fetch('http://localhost:3000/employees');
+      const response = await fetch("http://localhost:3000/api/employees");
       const data = await response.json();
       setEmployees(data);
       setLoading(false);
-    }
+    };
     fetchEmployees();
-  }
-  , []);
+  }, []);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -34,9 +33,8 @@ function App() {
           </div>
         ))}
       </div>
-
     </>
-  )
+  );
 }
 
-export default App
+export default App;
