@@ -11,9 +11,7 @@ const employees = require("./db/index");
 
 // Database Setup
 const client = new Client({
-  connectionString:
-    process.env.DATABASE_URL ||
-    "postgres://donro:thecastle1@localhost:5432/acme_hr_db",
+  connectionString: process.env.DATABASE_URL || 3000,
 });
 
 client.connect(); // connection
